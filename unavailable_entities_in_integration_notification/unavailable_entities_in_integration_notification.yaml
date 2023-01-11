@@ -69,7 +69,8 @@ blueprint:
       default: {}
       selector:
         target:
-          entity: {}
+          entity:
+            multiple: true
 
     actions:
       name: Actions
