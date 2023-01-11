@@ -94,11 +94,17 @@ variables:
 
   exclude: !input 'exclude'
 
-  sensors: >-
+  entities: >-
     {% set result = namespace(entities=[]) %}
     {% for entity_id in integration_entities(integration) %}
-      {% if states(entity_id) == 'unavailable' and entity_id not in exclude.entity_id %}
-        {% set result.entities = result.entities + [state_attr(entity_id, 'friendly_name')] %}
+      {% if exclude.entity_id is defined %}
+        {% if states(entity_id) == 'unavailable' and entity_id not in exclude.entity_id %}
+          {% set result.entities = result.entities + [state_attr(entity_id, 'friendly_name')] %}
+        {% endif %}
+      {% else %}
+        {% if states(entity_id) == 'unavailable' %}
+          {% set result.entities = result.entities + [state_attr(entity_id, 'friendly_name')] %}
+        {% endif %}
       {% endif %}
     {% endfor %}
     {{"⤵ \n- "}}{{result.entities|sort|join('\n- ')}}
