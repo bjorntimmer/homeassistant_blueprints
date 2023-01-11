@@ -107,7 +107,7 @@ variables:
         {% endif %}
       {% endif %}
     {% endfor %}
-    {{"⤵ \n- "}}{{result.entities|sort|join('\n- ')}}
+    {{"⤵ \n-"}}{{result.entities|sort|join('\n- ')}}
 
 
 # Triggers
