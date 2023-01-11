@@ -70,7 +70,6 @@ blueprint:
       selector:
         target:
           entity:
-            multiple: true
 
     actions:
       name: Actions
@@ -90,7 +89,7 @@ variables:
 
   current_day: '{{ now().weekday() | int }}'
 
-  threshold: !input 'threshold'
+  integration: !input 'integration'
 
   exclude: !input 'exclude'
 
