@@ -69,7 +69,7 @@ blueprint:
       default: {}
       selector:
         target:
-          entity:
+          entity: {}
 
     actions:
       name: Actions
