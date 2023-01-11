@@ -68,9 +68,7 @@ blueprint:
       description: Sensors (e.g. smartphone) to exclude from detection. Only entities are supported, areas and devices must be expanded!
       default: {}
       selector:
-        target:
-          entity:
-            integration: !input 'integration'
+        entity:
 
 
     actions:
