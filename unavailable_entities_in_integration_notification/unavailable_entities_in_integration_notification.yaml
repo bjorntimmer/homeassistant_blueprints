@@ -96,8 +96,8 @@ variables:
 
   sensors: >-
     {% set result = namespace(entities=[]) %}
-    {% for entity_id in integration_entities(integration) and entity_id not in exclude.entity_id %}
-      {% if states(entity_id) == 'unavailable' %}
+    {% for entity_id in integration_entities(integration) %}
+      {% if states(entity_id) == 'unavailable' and entity_id not in exclude.entity_id %}
         {% set result.entities = result.entities + [state_attr(entity_id, 'friendly_name')] %}
       {% endif %}
     {% endfor %}
