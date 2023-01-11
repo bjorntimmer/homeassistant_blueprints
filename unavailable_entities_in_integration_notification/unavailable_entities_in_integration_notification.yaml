@@ -70,7 +70,6 @@ blueprint:
       selector:
         target:
           entity:
-            device_class: battery
 
 
     actions:
